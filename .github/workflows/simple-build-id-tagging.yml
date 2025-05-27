@@ -6,7 +6,7 @@ on:
       - main # Triggers on pushes to the 'main' branch
     paths-ignore:
       - 'README.md' # This line prevents the workflow from running if only the README.md file is changed
-
+   
 jobs:
   tag-and-env:
     runs-on: ubuntu-latest # The environment where the job runs
