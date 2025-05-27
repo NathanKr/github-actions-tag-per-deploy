@@ -1,8 +1,8 @@
 <h1>Project Name</h1>
-Versioned Deployments
+Versioned Deployments with GitHub Actions
 
 <h2>Project Description</h2>
-"Versioned Deployments" provides a streamlined approach to uniquely identify each application deployment to production. By leveraging GitHub Actions' automatically incrementing `run_id`, this workflow creates a specific Git tag for every push to `main` and makes that tag available as an environment variable within your application. This system ensures precise traceability for debugging, internal version display, and documenting specific content versions.
+"Versioned Deployments" provides a streamlined approach to uniquely identify each application deployment to production. By leveraging GitHub Actions' automatically incrementing `run_id`, this workflow creates a specific Git tag for every push to `main` and makes that tag available as an environment variable within your application. This ensures traceability for debugging, admin displays, and versioned content.
 
 <h2>Motivation</h2>
 <p>When deploying applications to production, associating specific code versions with live deployments is crucial. Traditional semantic versioning (e.g., 1.2.3) is often manually updated and doesn't always reflect every individual deployment. This project automates the creation of unique deployment tags, resolving key challenges:</p>
@@ -12,11 +12,9 @@ Versioned Deployments
     <li><strong>Content Versioning:</strong> Accurately track the version of content (like legal disclaimers) presented to users.</li>
 </ul>
 
-<!-- <h2>Installation</h2>
-create a branch e.g. dev -->
 
 <h2>Installation</h2>
-<p>To set up this automated deployment tagging system, simply place the provided <code>simple-build-id-tagging.yml</code> workflow file in your repository's <code>.github/workflows/</code> directory. Ensure your GitHub Actions have <code>write</code> permissions to contents in your repository settings.</p>
+<p>To set up this automated deployment tagging system, simply place the provided <code>simple-build-id-tagging.yml</code> workflow file in your repository's <code>.github/workflows/</code> directory. Ensure your GitHub Actions have <code>write</code> permissions to the contents in your repository settings.</p>
 
 <h2>Usage</h2>
 <p>Work on <code>dev</code> and push to <code>origin dev</code>.</p>
@@ -25,27 +23,28 @@ create a branch e.g. dev -->
 
 <h2>Technologies Used</h2>
 <ul>
-<li>github actions</li>
+<li>GitHub Actions</li>
 </ul>
 
-<h2>Design</h2>
-Questions
+<h2>Design Considerations</h2>
+This section outlines the key design choices that enable reliable and consistent versioning during deployments. The focus is on generating unique identifiers and making them accessible to your application.
 
-<h3>Unique Tag</h3>
+<h3>Unique Tag Generation</h3>
 <p>Use <code>run_id</code> - auto-generated and incremented by GitHub Actions per push.</p>
 
-<h3>Relate Tag to Code</h3>
+<h3>Making Tag Available to Code</h3>
 <p>Workflow writes the tag to an environment variable, which is then used by the app.</p>
 
 <h2>Code Structure</h2>
+This section highlights the minimal code setup required to implement versioned deployments. It includes a sample Node.js file to access the deployment tag and a GitHub Actions workflow that automates tagging and exposes the tag to the application via environment variables.
 
-<h3>index.js</h3>
+<h3>index.js (Example node.js File)</h3>
 
 ```ts
 console.log(`TAG_NAME : ${process.env.TAG_NAME}`);
 ```
 
-<h3>simple-build-id-tagging.yml</h3>
+<h3>simple-build-id-tagging.yml (GitHub Actions Workflow)</h3>
 
 ```yml
 name: Simple Build ID Tagging (No README)
