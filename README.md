@@ -16,10 +16,14 @@ Versioned Deployments with GitHub Actions
 <h2>Installation</h2>
 <p>To set up this automated deployment tagging system, simply place the provided <code>simple-build-id-tagging.yml</code> workflow file in your repository's <code>.github/workflows/</code> directory. Ensure your GitHub Actions have <code>write</code> permissions to the contents in your repository settings.</p>
 
+
 <h2>Usage</h2>
-<p>Work on <code>dev</code> and push to <code>origin dev</code>.</p>
-<p>Go to the dashboard and create a pull request to push to <code>main</code>.</p>
-<p>The workflow is executed.</p>
+<p>Here's how to use this workflow with your development process:</p>
+<ol>
+    <li>Work on your <code>dev</code> branch and push your changes to <code>origin dev</code>.</li>
+    <li>Go to your GitHub dashboard and create a pull request from your <code>dev</code> branch to <code>main</code>.</li>
+    <li>Once the pull request is merged into <code>main</code>, the workflow automatically executes.</li>
+</ol>
 
 <h2>Technologies Used</h2>
 <ul>
