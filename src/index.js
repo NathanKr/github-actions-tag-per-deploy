@@ -1,1 +1,1 @@
-console.log('hello')
+console.log(`TAG_NAME : ${process.env.TAG_NAME}`)
